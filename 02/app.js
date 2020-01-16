@@ -9,14 +9,15 @@ formEl.addEventListener('submit',function(e){
     e.preventDefault()
 
     const email = e.target.elements.login;
-    const elementValue = email.value;
     console.log(email.value);
 
+    const elementValue = email.value
 
     function validateEmail(elementValue){      
-        const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-        return emailPattern.test(elementValue);
-    }; 
-});
+       const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+       return emailPattern.test(elementValue); 
+     }
 
+    
+});
 
