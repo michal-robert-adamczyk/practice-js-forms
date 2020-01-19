@@ -16,18 +16,29 @@ console.log('task 1 done');
 
 
 const formEl = document.querySelector('form');
+
 formEl.noValidate=true;
+
 function validateEmail(elementValue){      
     const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     return emailPattern.test(elementValue); 
   };
+
+  function validatePasword(elementValue){      
+    const passwordPattern = /^.{6,}$/;
+    return passwordPattern.test(elementValue); 
+  };
 formEl.addEventListener('submit',function(e){
     e.preventDefault();
 
-    const email = e.target.elements.login;
-    const emailToTest=email.value
-    console.log(email.value);
-    console.log(validateEmail(emailToTest));
+    const email = e.target.elements.login.value;
+    console.log(email);
+    console.log(validateEmail(email));
+
+
+    const forPass1 = e.target.elements.pass1.value;
+    console.log(forPass1);
+    console.log(validatePasword(forPass1));
 
     
     
