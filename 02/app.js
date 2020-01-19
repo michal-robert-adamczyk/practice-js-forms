@@ -40,6 +40,16 @@ formEl.addEventListener('submit',function(e){
     console.log(forPass1);
     console.log(validatePasword(forPass1));
 
+    const forPass2 = e.target.elements.pass2.value;
+    console.log(forPass2);
+
+    if (forPass1==forPass2){
+        console.log('same');
+    }
+    else
+        console.log('different');
+    
+
     
     
     
