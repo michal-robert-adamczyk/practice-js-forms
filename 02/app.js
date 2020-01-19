@@ -12,19 +12,25 @@ console.log('task 1 done');
 
 
 
-// function validateEmail(elementValue){      
-//   const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-//   return emailPattern.test(elementValue); 
-// } 
+
 
 
 const formEl = document.querySelector('form');
 formEl.noValidate=true;
+function validateEmail(elementValue){      
+    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    return emailPattern.test(elementValue); 
+  };
 formEl.addEventListener('submit',function(e){
-    e.preventDefault()
+    e.preventDefault();
 
     const email = e.target.elements.login;
+    const emailToTest=email.value
     console.log(email.value);
+    console.log(validateEmail(emailToTest));
+
+    
+    
     
 });
 
