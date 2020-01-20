@@ -1,16 +1,3 @@
-// 1. Odwołać się do wszystkich pól formularza i zatrzymać domyślną akcję
-console.log('task 1 done');
-
-// 2. sprawdzić czy dwa hasła są takie same i mają ponad 6 znaków
-// console.log('task 2 done');
-
-// 3. sprawdzić czy zostal poprawnie wprowadzony email
-// console.log('task 2 done');
-
-// rozumiem co robi ta funkcja ale najwyraźniej umyka mi coś w samej zasadzie działania funkcji ogólnie
-
-
-
 
 
 
@@ -31,28 +18,52 @@ function validateEmail(elementValue){
 formEl.addEventListener('submit',function(e){
     e.preventDefault();
 
+    const errors = [];
+    // console.log(errors);
+
     const email = e.target.elements.login.value;
-    console.log(email);
-    console.log(validateEmail(email));
+    // console.log(email);
+    // console.log(validateEmail(email))
+    
+    if (validateEmail(email)){
+        // console.log(validateEmail(email));
+    }
+    else{
+        errors.push('zły emial');
+    };
 
 
     const forPass1 = e.target.elements.pass1.value;
-    console.log(forPass1);
-    console.log(validatePasword(forPass1));
+    if (validatePasword(forPass1)){
+        // console.log(validateEmail(email));
+    }
+    else{
+        errors.push('hasło nie ma 6 znaków');
+    };
+    // console.log(forPass1);
+    // console.log(validatePasword(forPass1));
 
     const forPass2 = e.target.elements.pass2.value;
-    console.log(forPass2);
-
+    // console.log(forPass2);
     if (forPass1==forPass2){
-        console.log('same');
+        // console.log('same');
     }
-    else
-        console.log('different');
+    else{
+        errors.push('hasła nie są takie same');
+        // console.log('different');
+    };
+        
     
-
-    
-    
-    
+    const accept = e.target.elements.accept;
+    if (accept.checked){
+        // console.log('checked');
+    }
+    else{
+        errors.push('regulamin nie został zaakceptowany');
+        // console.log('not checked');
+    }
+    console.log(errors);
+        
 });
 
 
@@ -60,11 +71,6 @@ formEl.addEventListener('submit',function(e){
 
 
 
-
-// 4. warunek if wszystko ok --> console.log('done');
-//  if (walidacja e-maila oreaz obydwa paswordy takie same){
-//   console.log('done');
-// };
 
 // 5. warunek if not --> kolor fontu dla lebela z błędnie wprowadzonymi danymi zmienić na czerwono
 // zrobić tablicę z błędnie wprowadzonymi danymie `const errors = []` i dodać do niej selektors elementu z błędnymi danymi
