@@ -20,7 +20,7 @@ function validatePasword(elementValue) {
 function colourChanger(element) {
     // console.log(element);
 };
-formEl.addEventListener('submit', function (e) {
+formEl.addEventListener('submit', function(e) {
     e.preventDefault();
 
     const errors = [];
@@ -28,10 +28,9 @@ formEl.addEventListener('submit', function (e) {
     const email = e.target.elements.login;
     const emailValue = e.target.elements.login.value;
 
-    if (validateEmail(emailValue)) {
-    }
-    else {
-        errors.push('zły emial');
+    if (validateEmail(emailValue)) {} else {
+
+        errors.push('[for="formLogin"]');
         const formLogin = document.querySelector('[for="formLogin"]');
 
         formLogin.setAttribute('style', 'color:red');
@@ -42,28 +41,26 @@ formEl.addEventListener('submit', function (e) {
 
 
     const forPass1 = e.target.elements.pass1.value;
-    if (validatePasword(forPass1)) {
-    }
-    else {
-        errors.push('hasło nie ma 6 znaków');
+    if (validatePasword(forPass1)) {} else {
+        errors.push('[for="formPass1"]');
         const formPass1 = document.querySelector('[for="formPass1"]');
 
         formPass1.setAttribute('style', 'color:red');
 
+        errors.push('[for="formPass2"]');
         const formPass2 = document.querySelector('[for="formPass2"]');
 
         formPass2.setAttribute('style', 'color:red');
     };
 
     const forPass2 = e.target.elements.pass2.value;
-    if (forPass1 == forPass2) {
-    }
-    else {
-        errors.push('hasła nie są takie same');
+    if (forPass1 == forPass2) {} else {
+        errors.push('[for="formPass1"]');
         const formPass1 = document.querySelector('[for="formPass1"]');
 
         formPass1.setAttribute('style', 'color:red');
 
+        errors.push('[for="formPass2"]');
         const formPass2 = document.querySelector('[for="formPass2"]');
 
         formPass2.setAttribute('style', 'color:red');
@@ -71,14 +68,14 @@ formEl.addEventListener('submit', function (e) {
 
 
     const accept = e.target.elements.accept;
-    if (accept.checked) {
-    }
-    else {
-        errors.push('regulamin nie został zaakceptowany');
+    if (accept.checked) {} else {
+        errors.push('[for="formAccept"]');
         const formAccept = document.querySelector('[for="formAccept"]');
 
         formAccept.setAttribute('style', 'color:red');
-    }
+    };
+
+    console.log(errors);
 
 
 
