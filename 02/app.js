@@ -57,11 +57,11 @@ formEl.addEventListener('submit', function(e) {
         errors.push('[for="formAccept"]');
     };
 
-    console.log(errors);
-    for (let i = 0; i < errors.length; i++) {
-        console.log(i);
-        console.log(errors[i]);
-    };
+    // console.log(errors);
+    // for (let i = 0; i < errors.length; i++) {
+    //     console.log(i);
+    //     console.log(errors[i]);
+    // };
     for (let i = 0; i < errors.length; i++) {
         const formAccept = document.querySelector(errors[i]);
 
