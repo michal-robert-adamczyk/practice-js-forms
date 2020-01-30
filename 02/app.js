@@ -31,9 +31,7 @@ formEl.addEventListener('submit', function(e) {
     if (validateEmail(emailValue)) {} else {
 
         errors.push('[for="formLogin"]');
-        const formLogin = document.querySelector('[for="formLogin"]');
 
-        formLogin.setAttribute('style', 'color:red');
         // tutaj testowo zrobić tak żeby się kolor zmieniał, potem to samo zastosować w pętli
         // email.setAttribute('style', 'color:#FF0000');
 
@@ -43,36 +41,20 @@ formEl.addEventListener('submit', function(e) {
     const forPass1 = e.target.elements.pass1.value;
     if (validatePasword(forPass1)) {} else {
         errors.push('[for="formPass1"]');
-        const formPass1 = document.querySelector('[for="formPass1"]');
-
-        formPass1.setAttribute('style', 'color:red');
 
         errors.push('[for="formPass2"]');
-        const formPass2 = document.querySelector('[for="formPass2"]');
 
-        formPass2.setAttribute('style', 'color:red');
     };
 
     const forPass2 = e.target.elements.pass2.value;
     if (forPass1 == forPass2) {} else {
         errors.push('[for="formPass1"]');
-        const formPass1 = document.querySelector('[for="formPass1"]');
-
-        formPass1.setAttribute('style', 'color:red');
-
-        errors.push('[for="formPass2"]');
-        const formPass2 = document.querySelector('[for="formPass2"]');
-
-        formPass2.setAttribute('style', 'color:red');
     };
 
 
     const accept = e.target.elements.accept;
     if (accept.checked) {} else {
         errors.push('[for="formAccept"]');
-        const formAccept = document.querySelector('[for="formAccept"]');
-
-        formAccept.setAttribute('style', 'color:red');
     };
 
     console.log(errors);
@@ -80,6 +62,12 @@ formEl.addEventListener('submit', function(e) {
         console.log(i);
         console.log(errors[i]);
     };
+    for (let i = 0; i < errors.length; i++) {
+        const formAccept = document.querySelector(errors[i]);
+
+        formAccept.setAttribute('style', 'color:red');
+    }
+
 
 
 
