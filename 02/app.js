@@ -76,6 +76,10 @@ formEl.addEventListener('submit', function(e) {
     };
 
     console.log(errors);
+    for (let i = 0; i < errors.length; i++) {
+        console.log(i);
+        console.log(errors[i]);
+    };
 
 
 
