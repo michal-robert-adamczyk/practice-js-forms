@@ -10,20 +10,25 @@ function readFile(e) {
     const fileList = e.target.files;
 
     for (let i = 0; i < fileList.length; i++) {
-        console.log(fileList[i]);
         const file = fileList[i];
-        console.log(file)
-            // includes to jest właściwość czy metoda czy co to jest?   
+        // includes to jest właściwość czy metoda czy co to jest?   
         if (file && file.type.includes('image')) {
             const reader = new FileReader();
             reader.onload = function(readerEvent) {
                 const newImg = document.createElement('img');
-                // co to jest .src ??
+
                 // co to jest .target.result ??
                 newImg.src = readerEvent.target.result;
                 const newHeader = document.createElement('header');
                 const newLi = document.createElement('li');
                 const newFooter = document.createElement('footer');
+                const newPharagraphFileName = document.createElement('p');
+                const newPharagraphFileSize = document.createElement('p');
+                newPharagraphFileName.innerText = file.name;
+                newPharagraphFileSize.innerText = file.size;
+                const body = document.querySelector('body');
+                body.appendChild(newPharagraphFileName);
+                body.appendChild(newPharagraphFileSize);
                 imagesList.appendChild(newLi);
                 newLi.appendChild(newHeader);
                 newLi.appendChild(newImg);
