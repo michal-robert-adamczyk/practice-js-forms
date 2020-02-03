@@ -1,5 +1,4 @@
-document.addEventListener('DOMContentLoaded', init);
-
 const init = function() {
 
 };
+document.addEventListener('DOMContentLoaded', init);
