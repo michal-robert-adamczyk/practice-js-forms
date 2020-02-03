@@ -1,5 +1,5 @@
 // 2. tworzę funkcje init, do której wkładam wszystko co ma się stać po załadowaniu DOM
-const init = function() {
+function init() {
 
     // 3. tworzę potrzebne mi zmienne
     const defaultRangeValue = 40;
