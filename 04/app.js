@@ -17,9 +17,9 @@ function init() {
 
 
     // Ta funkcja ustawia ??
-    rangeEl.addEventListener('mousemove', setValue);
+    rangeEl.addEventListener('mousemove', setValueRange);
 
-    function setValue(e) {
+    function setValueRange(e) {
         const isMouseMoveEvent = e.type === 'mousemove';
         const isMouseLeftButtonPress = e.buttons === 1;
         if (
@@ -31,12 +31,12 @@ function init() {
         }
     }
 
-    colorEl.addEventListener('change', changeBGColor);
+    colorEl.addEventListener('change', setValueColor);
 
-    function changeBGColor(e) {
+    function setValueColor(e) {
         const body = document.body;
         const color = e.target.value;
-        body.style.backgroundColor = color;
+        console.log(color);
     }
 
     function setBoxShadow(element, colorInHex, opacity = 1) {
