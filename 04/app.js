@@ -1,43 +1,37 @@
 document.addEventListener('DOMContentLoaded', init);
 
 function init() {
-    // 3. tworzę potrzebne mi zmienne
+
     const rangeEl = document.querySelector('[type="range"]');
     const colorEl = document.querySelector('[type="color"]');
     rangeEl.setAttribute('min', '0,0');
     rangeEl.setAttribute('max', '1,0');
 
-    // 4. tworzę nasłuchwianie dla zmiennych 
-
-
-
-
     const boxElement = document.querySelector('.box');
     setBoxShadow(boxElement, '#000000');
 
 
-    // Ta funkcja ustawia ??
-    rangeEl.addEventListener('mousemove', setValueRange);
 
-    function setValueRange(e) {
+    rangeEl.addEventListener('mousemove', setValue);
+    rangeEl.addEventListener('change', setValue);
+    colorEl.addEventListener('change', setValue);
+
+
+    function setValue(e) {
         const isMouseMoveEvent = e.type === 'mousemove';
         const isMouseLeftButtonPress = e.buttons === 1;
         if (
             isMouseMoveEvent && isMouseLeftButtonPress ||
             !isMouseMoveEvent
         ) {
-            const opacity = e.target.value;
+            const opacity = rangeEl.value;
+            const color = colorEl.value;
             console.log(opacity);
+            console.log(color);
+
         }
     }
 
-    colorEl.addEventListener('change', setValueColor);
-
-    function setValueColor(e) {
-        const body = document.body;
-        const color = e.target.value;
-        console.log(color);
-    }
 
     function setBoxShadow(element, colorInHex, opacity = 1) {
         const colorInRGBA = `rgba(
