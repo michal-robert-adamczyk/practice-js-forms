@@ -77,8 +77,6 @@ function init() {
         return NamePattern.test(cityEl);
     };
 
-
-
     formEl.addEventListener('submit', function(e) {
         e.preventDefault();
         const firstNameElValue = e.target.elements.firstName.value;
@@ -87,7 +85,18 @@ function init() {
         if (!validateName(firstNameElValue)) {
             console.log('nieprawidłowa wartość');
             alert('To nie może być Twoje imie, nie kłam');
+
+            // ?? jak zrobić zmienną, która będzie we wszystkich ifach i jeżeli w żadnym nie będzie miała wartości true, to pojawi się alert, że wszystko ok??
+            // const error = true;
+            // if (error = true) {
+            //     console.log('błąd')
+            // }
+
         }
 
     });
+
+
+
+
 }
