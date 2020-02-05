@@ -1,15 +1,9 @@
-// 3. Const dla każdego potrzebnego pola
-// 4. nazwaElementu.noValidate = true (może pętlą to zrobię)
-// 5. event listener dla submit i preventDfault
-// 6. zrobić if dla każdego pola 
-// if (!NazwaFunkcjiValidującejPole(NazwaElementuValidowanego)) {
-//     co ma się stać jeżeli walidacja zakończy się fiaskiem;
-//     };
 // 7. Zrobić informację, że wszystko wprowadzono prawidłowo
 document.addEventListener('DOMContentLoaded', init);
 
 function init() {
-    // 3. Const dla każdego potrzebnego pola
+    // ?? Jak to zrobić szybciej ??
+    const formEl = document.querySelector('form');
     const firstNameEl = document.querySelector('[name="firstName"]');
     console.log(firstNameEl);
     const lastNameEl = document.querySelector('[name="lastName"]');
@@ -28,4 +22,72 @@ function init() {
     console.log(voivodeshipEl);
     const submitEl = document.querySelector('[type="submit"]');
     console.log(submitEl);
+
+    // ?? Jak to zrobić szybciej ??
+    cityEl.formEl = true;
+    firstNameEl.noValidate = true;
+    lastNameEl.noValidate = true;
+    streetEl.noValidate = true;
+    houseNumberEl.noValidate = true;
+    flatNumberEl.noValidate = true;
+    zipEl.noValidate = true;
+    cityEl.noValidate = true;
+    voivodeshipEl.noValidate = true;
+
+    function validateName(firstNameElValue) {
+        // zmienić RegEx !!
+        const NamePattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        return NamePattern.test(firstNameElValue);
+    };
+
+    function validateName(lastNameEl) {
+        // zmienić RegEx !!
+        const NamePattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        return NamePattern.test(lastNameEl);
+    };
+
+
+    function validateName(streetEl) {
+        // zmienić RegEx !!
+        const NamePattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        return NamePattern.test(streetEl);
+    };
+
+    function validateName(houseNumberEl) {
+        // zmienić RegEx !!
+        const NamePattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        return NamePattern.test(houseNumberEl);
+    };
+
+    function validateName(flatNumberEl) {
+        // zmienić RegEx !
+        const NamePattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        return NamePattern.test(flatNumberEl);
+    };
+
+    function validateName(zipEl) {
+        // zmienić RegEx !!
+        const NamePattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        return NamePattern.test(zipEl);
+    };
+
+    function validateName(cityEl) {
+        // zmienić RegEx !!
+        const NamePattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        return NamePattern.test(cityEl);
+    };
+
+
+
+    formEl.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const firstNameElValue = e.target.elements.firstName.value;
+        console.log(firstNameElValue);
+
+        if (!validateName(firstNameElValue)) {
+            console.log('nieprawidłowa wartość');
+            alert('To nie może być Twoje imie, nie kłam');
+        }
+
+    });
 }
